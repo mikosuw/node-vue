@@ -4,4 +4,5 @@ RUN apk add bash
 RUN mkdir -p /srv/app
 WORKDIR /srv/app
 
-CMD ["npm"]
+CMD ["npm", "install"]
+
