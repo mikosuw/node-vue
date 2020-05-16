@@ -38,7 +38,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
-      - ./mongodb/init:/mongodb/docker-entrypoint-initdb.d
+      - ./mongodb/init:/docker-entrypoint-initdb.d
       - ./mongodb/scripts:/scripts
 
   mongo-express:

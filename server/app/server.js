@@ -9,7 +9,7 @@ const routes = require('./api/routes/taskRoutes');
 mongoose.Promise = global.Promise;
 mongoose.set('useFindAndModify', false);
 mongoose.connect(
-    'mongodb://mongo',
+    'mongodb://server:password@mongo:27017/server',
     { useNewUrlParser: true }
 );
 
@@ -24,7 +24,7 @@ routes(app);
 app.listen(port);
 
 app.use((req, res) => {
-    res.status(404).send({ url: `${req.originalUrl} not foundddd` });
+    res.status(404).send({ url: `${req.originalUrl} not found` });
 });
 
 console.log(`Server started on port ${port}`);
