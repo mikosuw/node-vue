@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Tasks from './views/Tasks.vue';
-import New from './views/New.vue';
-import Show from './views/Show.vue';
-import Edit from './views/Edit.vue';
+import Tasks from './views/task/List.vue';
+import New from './views/task/New.vue';
+import Show from './views/task/Show.vue';
+import Edit from './views/task/Edit.vue';
 
 Vue.use(Router);
 

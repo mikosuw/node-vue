@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { api } from '../helpers/Helpers';
+import { api } from '../../helpers/Helpers';
 export default {
   name: 'tasks',
   data() {
