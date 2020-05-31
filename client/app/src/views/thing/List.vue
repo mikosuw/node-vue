@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h1>tasks</h1>
-        <table id="tasks" class="ui celled compact table">
+        <h1>things</h1>
+        <table id="things" class="ui celled compact table">
             <thead>
             <tr>
-                <th><i class="calendar plus icon"></i>Task</th>
+                <th><i class="calendar plus icon"></i>Thing</th>
                 <th><i class="info circle icon"></i>Detail</th>
                 <th><i class="lock open icon"></i></th>
                 <th><i class="edit icon"></i></th>
@@ -14,17 +14,17 @@
                 <th colspan="3"></th>
             </tr>
             </thead>
-            <tr v-for="(task, i) in tasks" :key="i">
-                <td>{{ task.task1 }}</td>
-                <td>{{ task.task2 }}</td>
+            <tr v-for="(thing, i) in things" :key="i">
+                <td>{{ thing.name }}</td>
+                <td>{{ thing.type }}</td>
                 <td width="75" class="center aligned">
-                    <router-link :to="{ name: 'tasks-show', params: { id: task._id }}">Show</router-link>
+                    <router-link :to="{ name: 'things-show', params: { id: thing._id }}">Show</router-link>
                 </td>
                 <td width="75" class="center aligned">
-                    <router-link :to="{ name: 'tasks-edit', params: { id: task._id }}">Edit</router-link>
+                    <router-link :to="{ name: 'things-edit', params: { id: thing._id }}">Edit</router-link>
                 </td>
-                <td width="75" class="center aligned" @click.prevent="onDestroy(task._id)">
-                    <a :href="`/tasks/${task._id}`">Delete</a>
+                <td width="75" class="center aligned" @click.prevent="onDestroy(thing._id)">
+                    <a :href="`/things/${thing._id}`">Delete</a>
                 </td>
             </tr>
         </table>
@@ -35,23 +35,23 @@
     import {api} from '../../helpers/Helpers';
 
     export default {
-        name: 'tasks',
+        name: 'things',
         data() {
             return {
-                tasks: []
+                things: []
             };
         },
         methods: {
             async onDestroy(id) {
                 const sure = window.confirm('Are you sure?');
                 if (!sure) return;
-                await api.deletetask(id);
-                this.flash('task deleted sucessfully!', 'success');
-                this.tasks = this.tasks.filter(task => task._id !== id);
+                await api.deletething(id);
+                this.flash('thing deleted sucessfully!', 'success');
+                this.things = this.things.filter(thing => thing._id !== id);
             }
         },
         async mounted() {
-            this.tasks = await api.gettasks();
+            this.things = await api.getthings();
         }
     };
 </script>
