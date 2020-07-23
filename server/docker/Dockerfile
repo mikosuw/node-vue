@@ -13,4 +13,6 @@ WORKDIR /srv/app
 RUN touch ~/.bashrc
 RUN echo "PS1='\u@server:\w\$ '" >> ~/.bashrc
 
+RUN npm i -g @nestjs/cli
+
 CMD ["npm", "run", "start"]
