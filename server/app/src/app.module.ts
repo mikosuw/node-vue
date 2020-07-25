@@ -2,9 +2,10 @@ import {MiddlewareConsumer, Module, NestModule, RequestMethod} from '@nestjs/com
 import {CatsModule} from "./cats/cats.module" ;
 import {CatsController} from "./cats/cats.controller";
 import {logger} from "./common/middleware/logger.middleware";
+import {MongooseModule} from "@nestjs/mongoose";
 
 @Module({
-    imports: [CatsModule],
+    imports: [CatsModule, MongooseModule.forRoot('mongodb://cats:password@mongo/cats')],
     controllers: [],
     providers: [],
 })
