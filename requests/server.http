@@ -3,7 +3,7 @@ GET http://localhost:3000/cats
 Content-Type: application/json
 
 ###
-GET http://localhost:3000/cats/asd
+GET http://localhost:3000/cats/123
 Content-Type: application/json
 
 ###
